@@ -13,9 +13,45 @@ import {
   Microscope,
   ArrowRight,
   CheckCircle2,
+  Shield,
 } from "lucide-react";
 
 const projects = [
+  {
+    title: "Credit Risk Intelligence",
+    icon: Shield,
+    tagline:
+      "SQL-driven portfolio analysis, exploratory diagnostics, and default-risk modeling on multi-table credit application data.",
+    stack: [
+      "SQL",
+      "DuckDB",
+      "Python",
+      "scikit-learn",
+      "EDA",
+      "Risk Modeling",
+    ],
+    status: "End-to-end applied DS project shipped",
+    accent: "from-amber-800 to-amber-600",
+    repo: "https://github.com/auniyal26/credit-risk-intelligence",
+    highlights: [
+      "Built an end-to-end applied data science project on the Home Credit Default Risk dataset, combining SQL-based applicant-level feature construction, exploratory risk analysis, and baseline default modeling.",
+      "Aggregated bureau history, previous application behavior, and installment-payment signals into a one-row-per-applicant analytical table while preserving applicant grain.",
+      "Shipped a visible SQL layer with recruiter-readable findings around income, age, employment history, contract type, and bureau overdue behavior.",
+      "Built a presentable EDA layer covering target imbalance, missingness, segment risk, and numeric target-wise patterns from the applicant base table.",
+      "Trained controlled baseline models and framed the final output as manual-review support rather than a hard automated approval engine.",
+    ],
+    wins: [
+      "307,511-row applicant-level analytical table built",
+      "SQL + EDA + ML + business summary shipped",
+      "Logistic Regression ROC-AUC: 0.7641",
+      "Strong first applied DS project outside biomedical work",
+    ],
+    lessons: [
+      "Good applied DS work needs SQL, analysis, and modeling to connect cleanly.",
+      "Interpretability and policy framing matter as much as model score in risk settings.",
+      "A modest but complete project is more valuable than an overbuilt unfinished one.",
+    ],
+  },
   {
     title: "Brain Tumor MRI Imaging",
     icon: Brain,
@@ -357,9 +393,7 @@ export default function LifeResetPortfolioSite() {
                 built while rebuilding from scratch.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                This is a structured body of work across medical imaging,
-                biosignals, MEG, and public epigenetics—built with a research
-                mindset, reproducible outputs, and visible evidence.
+                This is a structured body of work across medical imaging, biosignals, public epigenetics, neurophysiology, and applied data science—built with a research mindset, reproducible outputs, and visible evidence.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -374,7 +408,7 @@ export default function LifeResetPortfolioSite() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                ["4", "Core project tracks"],
+                ["5", "Core project tracks"],
                 ["15+", "Weeks of logged deep work"],
                 ["10+", "Runnable scripts / pipelines"],
                 ["Dozens", "Saved proof artifacts"],
@@ -447,7 +481,7 @@ export default function LifeResetPortfolioSite() {
               <h3 className="text-xl font-bold text-slate-100">Background</h3>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
                 <li>• MSc in Data Science, FAU Erlangen-Nürnberg</li>
-                <li>• Thesis work in sEMG signal analysis and experimental modeling</li>
+                <li>• Thesis work in EMG signal analysis and experimental modeling</li>
                 <li>• Experience with PyTorch, scikit-learn, signal processing, and scientific ML workflows</li>
                 <li>• IEEE publications in health and risk-prediction applications</li>
               </ul>
@@ -562,10 +596,10 @@ export default function LifeResetPortfolioSite() {
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-                Summary
+                Research direction
               </p>
               <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-100 sm:text-4xl">
-                Four projects. One research-minded way of building.
+                Five projects. One research-minded way of building.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
                 These projects were built to show more than technical curiosity.
@@ -577,7 +611,7 @@ export default function LifeResetPortfolioSite() {
 
             <div className="rounded-3xl border border-slate-800 bg-slate-950/70 p-6">
               <h3 className="text-lg font-bold text-slate-100">
-                What carries across all four
+                What carries across all five
               </h3>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
                 <li>• Clear problem framing before modeling</li>
