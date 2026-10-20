@@ -3,626 +3,203 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Brain,
-  Activity,
-  Waves,
-  Dna,
-  Github,
-  BarChart3,
-  ShieldCheck,
-  Microscope,
-  ArrowRight,
-  CheckCircle2,
-  Shield,
+  ArrowUpRight, Github, Mail, FlaskConical, Network, Activity,
+  GraduationCap, Brain, Waves, Dna, Shield,
 } from "lucide-react";
 
 const projects = [
   {
     title: "Credit Risk Intelligence",
+    category: "Applied data science",
     icon: Shield,
-    tagline:
-      "SQL-driven portfolio analysis, exploratory diagnostics, and default-risk modeling on multi-table credit application data.",
-    stack: [
-      "SQL",
-      "DuckDB",
-      "Python",
-      "scikit-learn",
-      "EDA",
-      "Risk Modeling",
-    ],
-    status: "End-to-end applied DS project shipped",
-    accent: "from-amber-800 to-amber-600",
+    description: "Applicant-level SQL analytics, exploratory diagnostics, and interpretable default-risk modeling on multi-table credit application data.",
+    tags: ["SQL", "DuckDB", "Python", "scikit-learn"],
+    proof: "307,511 applicant records; logistic-regression ROC-AUC 0.7641.",
     repo: "https://github.com/auniyal26/credit-risk-intelligence",
-    highlights: [
-      "Built an end-to-end applied data science project on the Home Credit Default Risk dataset, combining SQL-based applicant-level feature construction, exploratory risk analysis, and baseline default modeling.",
-      "Aggregated bureau history, previous application behavior, and installment-payment signals into a one-row-per-applicant analytical table while preserving applicant grain.",
-      "Shipped a visible SQL layer with recruiter-readable findings around income, age, employment history, contract type, and bureau overdue behavior.",
-      "Built a presentable EDA layer covering target imbalance, missingness, segment risk, and numeric target-wise patterns from the applicant base table.",
-      "Trained controlled baseline models and framed the final output as manual-review support rather than a hard automated approval engine.",
-    ],
-    wins: [
-      "307,511-row applicant-level analytical table built",
-      "SQL + EDA + ML + business summary shipped",
-      "Logistic Regression ROC-AUC: 0.7641",
-      "Strong first applied DS project outside biomedical work",
-    ],
-    lessons: [
-      "Good applied DS work needs SQL, analysis, and modeling to connect cleanly.",
-      "Interpretability and policy framing matter as much as model score in risk settings.",
-      "A modest but complete project is more valuable than an overbuilt unfinished one.",
-    ],
   },
   {
     title: "Brain Tumor MRI Imaging",
+    category: "Medical imaging",
     icon: Brain,
-    tagline:
-      "Reproducible MRI classification baseline with a two-stage pipeline for cleaner diagnosis under dataset shift.",
-    stack: [
-      "PyTorch",
-      "torchvision",
-      "scikit-learn",
-      "Matplotlib",
-      "Two-Stage Pipeline",
-    ],
-    status: "Versioned baselines + comparison snapshots",
-    accent: "from-slate-800 to-slate-600",
+    description: "Reproducible four-class MRI baseline, extended into tumor/no-tumor screening followed by tumor-subtype classification.",
+    tags: ["PyTorch", "torchvision", "Classification", "Evaluation"],
+    proof: "Versioned baseline comparisons, confusion matrices, and staged evaluation.",
     repo: "https://github.com/auniyal26/brain-tumor-mri-imaging",
-    highlights: [
-      "Built a 4-class brain tumor MRI baseline and extended it into a two-stage pipeline: Stage A separates tumor from no_tumor, and Stage B predicts the tumor subtype.",
-      "Structured the project around reproducible runs instead of one-off experiments, with versioned result snapshots copied after each run.",
-      "Kept a comparison file as the single source of truth so model changes could be judged systematically rather than by memory.",
-      "Stored proof artifacts such as confusion matrices and run outputs to make model behavior visible and reviewable.",
-      "Designed the repo as a practical model-diagnosis workflow, not just a leaderboard-style notebook.",
-    ],
-    wins: [
-      "4-class baseline + Stage A/Stage B workflow shipped",
-      "Versioned run snapshots stored after each experiment",
-      "Comparison tracking built into the repo structure",
-      "Strong foundation for medical-imaging model iteration",
-    ],
-    lessons: [
-      "A clean evaluation structure matters as much as raw accuracy.",
-      "Two-stage decomposition can make difficult classification problems easier to reason about.",
-      "Saving proof artifacts turns experiments into portfolio-grade work.",
-    ],
   },
   {
     title: "Signals",
+    category: "Biomedical signals",
     icon: Activity,
-    tagline:
-      "Lightweight ECG and EEG signal-processing sandbox focused on reproducibility, robustness, and reusable tooling.",
-    stack: [
-      "Python",
-      "NumPy",
-      "SciPy",
-      "Matplotlib",
-      "Signal Processing",
-      "Toolkit Design",
-    ],
-    status: "Reusable toolkit + robustness demo shipped",
-    accent: "from-emerald-800 to-emerald-600",
+    description: "Reusable ECG and EEG signal-processing toolkit with filtering, peak detection, timing analysis, and robustness checks.",
+    tags: ["Python", "NumPy", "SciPy", "Signal processing"],
+    proof: "Runnable ECG demo with saved figures and noisy-signal tests.",
     repo: "https://github.com/auniyal26/Signals",
-    highlights: [
-      "Built a compact signal-processing repository around a reusable toolkit and a one-command ECG demo.",
-      "Covered the full loop from filtering and peak detection to BPM and RR metrics, with outputs saved as visible artifacts rather than hidden in console logs.",
-      "Improved the detector from a simple baseline to a more robust QRS-envelope approach using focused bandpass filtering, smoothing, adaptive prominence, and RR constraints.",
-      "Included robustness cases such as noisy and T-wave-boosted signals to test whether the detector held up under harder conditions.",
-      "Positioned the repo as a small but serious biosignals sandbox rather than a single throwaway notebook.",
-    ],
-    wins: [
-      "Reusable toolkit module shipped",
-      "One-command ECG demo with saved plots",
-      "Robust detector handles noisy edge cases better",
-      "Clear bridge from toy signals to real biosignal workflow thinking",
-    ],
-    lessons: [
-      "Robustness matters more than a pretty single-case demo.",
-      "Reusable functions are what turn an experiment into a toolkit.",
-      "Visible outputs make signal-processing work easier to trust and explain.",
-    ],
   },
   {
     title: "Epigenetic Tumor Typing",
+    category: "Computational biology",
     icon: Dna,
-    tagline:
-      "Public methylation-based CNS tumor typing baseline focused on QC, tractable modeling, and error analysis.",
-    stack: [
-      "Python",
-      "Linear Models",
-      "Feature Selection",
-      "QC Artifacts",
-      "Confusion Analysis",
-    ],
-    status: "Public-data baseline with QC and error analysis",
-    accent: "from-rose-800 to-rose-600",
+    description: "Methylation-based CNS tumor-typing baselines with dataset quality control, label grouping, and compact error analysis.",
+    tags: ["Python", "Feature selection", "Linear models", "QC"],
+    proof: "Public GSE90496 cohort; 2,801 samples across 91 raw classes.",
     repo: "https://github.com/auniyal26/epigenetic_tumor_typing",
-    highlights: [
-      "Built an implementation-first tumor-typing baseline on the public CNS methylation reference cohort GSE90496.",
-      "Covered the full path from loading and QC to baseline models, evaluation, and compact error analysis without overengineering the workflow.",
-      "Worked with 2,801 samples across 91 raw methylation classes, then grouped sparse labels into OTHER to produce more stable baselines.",
-      "Shipped dataset QC artifacts, baseline runs, grouped-label confusion analysis, and compact follow-up error-analysis outputs.",
-      "Used the project to show practical fluency in biomedical tabular ML and research-style reporting.",
-    ],
-    wins: [
-      "Public cohort profiled and documented cleanly",
-      "QC → baseline → evaluation pipeline shipped",
-      "Grouped-label strategy improved tractability",
-      "Error analysis kept compact and decision-useful",
-    ],
-    lessons: [
-      "Good baseline work is about structure and judgment, not complexity for its own sake.",
-      "Grouping sparse labels can stabilize a noisy long-tail classification problem.",
-      "Error analysis is more valuable than dumping giant unreadable outputs.",
-    ],
   },
   {
     title: "MEG Pipeline",
+    category: "Neurophysiology",
     icon: Waves,
-    tagline:
-      "Minimal reproducible MEG workflow from raw sensor data to report-ready outputs.",
-    stack: [
-      "Python",
-      "MNE",
-      "NumPy",
-      "SciPy",
-      "Matplotlib",
-      "Sensor-Space Analysis",
-    ],
-    status: "End-to-end report pipeline shipped",
-    accent: "from-indigo-800 to-indigo-600",
+    description: "Reproducible sensor-space MEG processing from raw measurements to cleaned, report-ready visual analyses.",
+    tags: ["MNE", "Python", "Time-frequency analysis", "ICA"],
+    proof: "One-command workflow with epochs, evoked responses, and dated reports.",
     repo: "https://github.com/auniyal26/MEG",
-    highlights: [
-      "Built a minimal MNE-based MEG workflow on the sample dataset that runs end-to-end from one command.",
-      "Included raw loading, notch and bandpass filtering, event detection, epoching, evoked RMS analysis, Morlet time-frequency analysis, and an ICA artifact-removal attempt.",
-      "Saved outputs into a structured dated report folder with numbered figures and a summary file.",
-      "Designed the project as a reproducible neuro-signal workflow rather than a loose collection of exploratory steps.",
-      "Used the repo to demonstrate clear sensor-space pipeline thinking with visible, report-ready artifacts.",
-    ],
-    wins: [
-      "One-command MEG report generation",
-      "Filtering, epochs, evoked, TFR, and ICA workflow included",
-      "Structured dated results folders created automatically",
-      "Strong demonstration of reproducible neuro-signal processing",
-    ],
-    lessons: [
-      "Reproducibility matters even in small learning-scale projects.",
-      "A report structure makes advanced signal work far easier to review.",
-      "Clear pipeline design is what makes technical work presentable.",
-    ],
   },
 ];
 
-const timeline = [
-  [
-    "Dec 2025",
-    "Started LifeReset deep-work buildout with Signals toolkit and Imaging baseline work.",
-  ],
-  [
-    "Jan 2026",
-    "Shifted from quick experiments to packaging, controlled tests, and GitHub-ready repos.",
-  ],
-  [
-    "Feb 2026",
-    "Expanded into EEG, MEG, and public epigenetics tumor typing with real datasets.",
-  ],
-  [
-    "Mar 2026",
-    "Consolidated reports, cleaned repos, and turned the work into portfolio-grade proof artifacts.",
-  ],
+const researchSteps = [
+  { icon: FlaskConical, num: "I", title: "Represent", detail: "Organise haematological and glycaemic biomarkers into separate physiological blocks." },
+  { icon: Network, num: "II", title: "Decompose", detail: "Model shared, discordant, and block-specific information while preserving the underlying measurements." },
+  { icon: Activity, num: "III", title: "Evaluate", detail: "Examine phenotype associations and test whether mappings remain stable over time and across datasets." },
 ];
 
-const pillars = [
-  {
-    title: "Research-first build style",
-    text: "Every project was run like a small lab: controlled changes, explicit metrics, saved artifacts, and post-run interpretation.",
-  },
-  {
-    title: "Proof over hype",
-    text: "Confusion matrices, PSDs, run logs, reports, and snapshots were treated as the actual product—not just code.",
-  },
-  {
-    title: "From scripts to systems",
-    text: "The work matured from one-off notebooks into reusable toolkits, runnable scripts, structured repos, and clean READMEs.",
-  },
+const education = [
+  ["2026 — PRESENT", "PhD · Translational & Computational Medicine", "Plaksha University · Mohali, India"],
+  ["2022 — 2025", "MSc · Data Science", "FAU Erlangen–Nürnberg · Germany"],
+  ["2018 — 2022", "BTech · Information Technology", "NMIMS University · Mumbai, India"],
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
+const appear = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } };
 
-function SectionTitle({ eyebrow, title, subtitle }) {
+function Heading({ number, eyebrow, title, intro }) {
   return (
-    <div className="max-w-3xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-        {eyebrow}
-      </p>
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="mt-4 text-base leading-7 text-slate-300">{subtitle}</p>
-      )}
+    <div className="mb-10 max-w-3xl">
+      <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#97794A]">{number} / {eyebrow}</p>
+      <h2 className="mt-4 font-serif text-3xl font-normal leading-[1.15] tracking-tight text-[#193C31] sm:text-5xl">{title}</h2>
+      {intro && <p className="mt-5 text-[15px] leading-8 text-[#53645A]">{intro}</p>}
     </div>
   );
 }
 
-function SimpleCard({ children, className = "" }) {
-  return (
-    <div
-      className={`rounded-3xl border border-slate-800 bg-slate-900 shadow-xl shadow-black/10 ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function BadgePill({ children }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200">
-      {children}
-    </span>
-  );
-}
-
-function ButtonLink({ href = "#", children, dark = false }) {
-  return (
-    <a
-      href={href}
-      target={href.startsWith("http") ? "_blank" : "_self"}
-      rel="noreferrer"
-      className={`inline-flex items-center rounded-2xl px-5 py-3 text-sm font-medium transition ${
-        dark
-          ? "bg-slate-100 text-slate-950 hover:bg-slate-200"
-          : "border border-slate-700 bg-slate-900 text-slate-100 hover:bg-slate-800"
-      }`}
-    >
-      {children}
-    </a>
-  );
-}
-
-function ProjectCard({ project, index }) {
+function WorkCard({ project, index }) {
   const Icon = project.icon;
-
   return (
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+    <motion.article
+      initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.08 }}
+      variants={appear} transition={{ duration: 0.35, delay: Math.min(index * 0.06, 0.25) }}
+      className="overflow-hidden rounded-md border border-[#DDD6C8] bg-[#FFFEFA]"
     >
-      <SimpleCard className="overflow-hidden">
-        <div className={`bg-gradient-to-r ${project.accent} p-6 text-white`}>
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="mb-3 inline-flex rounded-2xl bg-white/10 p-3 backdrop-blur">
-                <Icon className="h-6 w-6" />
-              </div>
-              <h3 className="text-2xl font-bold">{project.title}</h3>
-              <p className="mt-2 max-w-2xl text-sm text-white/85">
-                {project.tagline}
-              </p>
-            </div>
-            <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">
-              {project.status}
-            </span>
-          </div>
+      <div className="flex items-start gap-4 border-b border-[#E7E0D4] p-6 sm:p-8">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-[#E6EEE7] text-[#193C31]"><Icon className="h-6 w-6" /></div>
+        <div>
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.19em] text-[#97794A]">{project.category}</p>
+          <h3 className="font-serif text-2xl text-[#193C31]">{project.title}</h3>
+          <p className="mt-3 text-sm leading-7 text-[#53645A]">{project.description}</p>
         </div>
-
-        <div className="p-6 sm:p-8">
-          <div className="flex flex-wrap gap-2">
-            {project.stack.map((item) => (
-              <BadgePill key={item}>{item}</BadgePill>
-            ))}
-          </div>
-
-          <div className="mt-5">
-            <ButtonLink href={project.repo}>
-              View repository <Github className="ml-2 h-4 w-4" />
-            </ButtonLink>
-          </div>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
-                What shipped
-              </h4>
-              <ul className="mt-4 space-y-3">
-                {project.highlights.map((point) => (
-                  <li
-                    key={point}
-                    className="flex gap-3 text-sm leading-6 text-slate-300"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-5">
-                <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
-                  Key wins
-                </h4>
-                <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
-                  {project.wins.map((win) => (
-                    <li key={win}>• {win}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-5">
-                <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
-                  What it taught me
-                </h4>
-                <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-300">
-                  {project.lessons.map((lesson) => (
-                    <li key={lesson}>• {lesson}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div className="p-6 pt-5 sm:p-8 sm:pt-5">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => <span key={tag} className="rounded-sm border border-[#D3DFD5] bg-[#F0F4EE] px-2.5 py-1 text-[11px] text-[#2D5447]">{tag}</span>)}
         </div>
-      </SimpleCard>
-    </motion.div>
+        <p className="mt-5 text-[13px] leading-6 text-[#53645A]"><strong className="font-semibold text-[#193C31]">Evidence:</strong> {project.proof}</p>
+        <a href={project.repo} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 border-b border-[#B79A61] pb-1 text-sm font-semibold text-[#193C31] hover:opacity-70">View repository <ArrowUpRight className="h-4 w-4" /></a>
+      </div>
+    </motion.article>
   );
 }
 
-export default function LifeResetPortfolioSite() {
+export default function ResearchPortfolio() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <section className="relative overflow-hidden border-b border-slate-800 bg-gradient-to-b from-slate-950 to-slate-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(148,163,184,0.10),transparent_30%),radial-gradient(circle_at_top_left,rgba(71,85,105,0.12),transparent_25%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-28 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr]"
-          >
-            <div>
-              <span className="inline-flex rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-100">
-                LifeReset Portfolio • Dec 2025 → Mar 2026
-              </span>
-              <h1 className="mt-6 max-w-4xl text-4xl font-black tracking-tight text-slate-100 sm:text-6xl">
-                A portfolio of the systems, experiments, and proof artifacts I
-                built while rebuilding from scratch.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                This is a structured body of work across medical imaging, biosignals, public epigenetics, neurophysiology, and applied data science—built with a research mindset, reproducible outputs, and visible evidence.
-              </p>
+    <div className="min-h-screen bg-[#F5F1E7] font-sans text-[#303932]">
+      <nav className="border-b border-[#E1D9CA] bg-[#FFFEFA]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:px-10">
+          <a href="#top" className="font-serif text-base text-[#193C31] sm:text-xl">Alankar Sunil Uniyal<span className="text-[#B79A61]">.</span></a>
+          <div className="flex items-center gap-4 text-xs font-semibold text-[#355548] sm:gap-8">
+            <a href="#research" className="hover:text-[#97794A]">Research</a>
+            <a href="#projects" className="hover:text-[#97794A]">Projects</a>
+            <a href="#about" className="hidden hover:text-[#97794A] sm:inline">About</a>
+            <a href="mailto:auniyal26@gmail.com" className="hover:text-[#97794A]">Contact</a>
+          </div>
+        </div>
+      </nav>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="#projects" dark>
-                  View project sections <ArrowRight className="ml-2 h-4 w-4" />
-                </ButtonLink>
-                <ButtonLink href="https://github.com/auniyal26/">
-                  GitHub profile <Github className="ml-2 h-4 w-4" />
-                </ButtonLink>
-              </div>
+      <header id="top" className="relative overflow-hidden bg-[#193C31] text-[#FFFEFA]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_90%_22%,rgba(183,154,97,0.15),transparent_43%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.3fr_0.7fr] lg:items-center lg:px-10 lg:py-28">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#D5BA81]">Plaksha University · PhD Researcher</p>
+            <h1 className="mt-7 max-w-3xl font-serif text-5xl font-normal leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">Understanding physiology.<span className="mt-2 block text-[#DFCA9D]">Exploring cognition.</span></h1>
+            <p className="mt-7 max-w-2xl text-base leading-8 text-[#D5E1D8]">I work at the intersection of computational medicine, biomedical data science, and statistical learning—developing reproducible methods to study how shared and independent physiological information relates to mental and cognitive health.</p>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <a href="#research" className="inline-flex items-center gap-2 rounded-sm bg-[#DCC594] px-5 py-3 text-sm font-semibold text-[#193C31] hover:bg-[#E9D5AC]">Current research <ArrowUpRight className="h-4 w-4" /></a>
+              <a href="https://github.com/auniyal26" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-sm border border-[#7F988A] px-5 py-3 text-sm font-semibold text-[#FFFEFA] hover:border-[#DCC594]"><Github className="h-4 w-4" /> GitHub</a>
             </div>
+          </div>
+          <div className="rounded-lg border border-[#557165] bg-[#24493D] p-6 sm:p-8" role="img" aria-label="Conceptual research map showing haematological and glycaemic measurements decomposed to a physiological representation and mapped to health phenotypes">
+            <p className="text-[10px] font-bold uppercase tracking-[0.19em] text-[#DCC594]">Research architecture</p>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-sm border border-[#668074] p-4"><p className="font-serif text-4xl">A</p><p className="mt-1 text-xs text-[#DBE6DD]">Haematology</p></div>
+              <div className="rounded-sm border border-[#668074] p-4"><p className="font-serif text-4xl">G</p><p className="mt-1 text-xs text-[#DBE6DD]">Glycaemia</p></div>
+            </div>
+            <p className="py-3 text-center text-xl text-[#DCC594]">↓</p>
+            <div className="rounded-sm border border-[#B79A61] bg-[#35594C] p-4 text-center"><p className="font-serif text-4xl">Z</p><p className="text-xs text-[#DBE6DD]">Shared · Discordant · Private</p></div>
+            <p className="py-3 text-center text-xl text-[#DCC594]">↓</p>
+            <div className="rounded-sm border border-[#668074] p-4 text-center"><p className="font-serif text-4xl">Y</p><p className="text-xs text-[#DBE6DD]">Health phenotypes</p></div>
+            <p className="mt-5 text-[11px] leading-5 text-[#BFCFC3]">A conceptual workflow, not a causal diagram.</p>
+          </div>
+        </div>
+        <div className="h-1 bg-gradient-to-r from-[#B79A61] via-[#DCC594] to-[#193C31]" />
+      </header>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                ["5", "Core project tracks"],
-                ["15+", "Weeks of logged deep work"],
-                ["10+", "Runnable scripts / pipelines"],
-                ["Dozens", "Saved proof artifacts"],
-              ].map(([value, label]) => (
-                <SimpleCard key={label}>
-                  <div className="p-6">
-                    <p className="text-3xl font-black text-slate-100">{value}</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">
-                      {label}
-                    </p>
-                  </div>
-                </SimpleCard>
-              ))}
+      <section id="research" className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
+        <Heading number="01" eyebrow="Current doctoral research" title="Haematological and glycaemic decomposition" intro="Investigating the independent and overlapping information in physiological systems—and whether those representations support stable, interpretable associations with depression-related and cognitive phenotypes." />
+        <div className="grid gap-5 lg:grid-cols-3">
+          {researchSteps.map(({ icon: Icon, num, title, detail }) => (
+            <div key={title} className="rounded-md border border-[#DDD6C8] bg-[#FFFEFA] p-7">
+              <div className="flex items-center justify-between"><Icon className="h-6 w-6 text-[#2D5447]" /><span className="font-serif text-3xl text-[#B79A61]">{num}.</span></div>
+              <h3 className="mt-7 font-serif text-2xl text-[#193C31]">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#53645A]">{detail}</p>
             </div>
-          </motion.div>
+          ))}
+        </div>
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-4 rounded-md border border-[#D6C9AE] bg-[#EFE6D4] px-6 py-5">
+          <p className="text-sm text-[#40584A]"><strong className="text-[#193C31]">Status:</strong> Ongoing doctoral research. Findings are exploratory, not clinical or causal claims.</p>
+          <a href="https://github.com/auniyal26/anemic-glycemic-burden-decomposition" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-[#193C31] hover:underline">Research repository <ArrowUpRight className="h-4 w-4" /></a>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <SectionTitle
-          eyebrow="Core thesis"
-          title="What this portfolio is really showing"
-          subtitle="The common thread across these projects is not just code. It is the ability to frame a problem, design a sensible baseline, diagnose failure honestly, and ship evidence that the work happened."
-        />
+      <section id="projects" className="border-y border-[#DFD8C8] bg-[#F0EBDD]">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
+          <Heading number="02" eyebrow="Selected technical work" title="Projects and reproducible systems" intro="Selected work across medical imaging, computational biology, biosignals, neurophysiology, and applied data science. Each card links directly to its GitHub repository." />
+          <div className="grid items-start gap-6 lg:grid-cols-2">
+            {projects.map((project, index) => <WorkCard key={project.title} project={project} index={index} />)}
+          </div>
+        </div>
+      </section>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {pillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.title}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: index * 0.07 }}
-            >
-              <SimpleCard className="h-full">
-                <div className="p-6">
-                  <div className="mb-4 inline-flex rounded-2xl bg-slate-800 p-3">
-                    {index === 0 ? (
-                      <Microscope className="h-5 w-5" />
-                    ) : index === 1 ? (
-                      <ShieldCheck className="h-5 w-5" />
-                    ) : (
-                      <BarChart3 className="h-5 w-5" />
-                    )}
-                  </div>
-                  <h3 className="text-xl font-bold tracking-tight text-slate-100">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-300">
-                    {pillar.text}
-                  </p>
-                </div>
-              </SimpleCard>
-            </motion.div>
+      <section id="about" className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20 lg:px-10 lg:py-24">
+        <div>
+          <Heading number="03" eyebrow="Background" title="Research grounded in engineering." />
+          <p className="max-w-lg text-[15px] leading-8 text-[#53645A]">My background spans information technology, data science, biomedical signal processing, and medical AI. I prioritise rigorous baselines, transparent evaluation, reproducible workflows, and critical interpretation of results.</p>
+          <a href="mailto:auniyal26@gmail.com" className="mt-7 inline-flex items-center gap-2 border-b border-[#B79A61] pb-1 text-sm font-semibold text-[#193C31]"><Mail className="h-4 w-4" /> Get in touch</a>
+        </div>
+        <div className="rounded-md border border-[#DDD6C8] bg-[#FFFEFA] p-7 sm:p-9">
+          <div className="mb-3 flex items-center gap-2 text-[#97794A]"><GraduationCap className="h-5 w-5" /><span className="text-[11px] font-bold uppercase tracking-[0.2em]">Academic timeline</span></div>
+          {education.map(([years, degree, institution]) => (
+            <div key={degree} className="border-b border-[#E6DFD2] py-5 last:border-0">
+              <p className="mb-2 text-[11px] font-bold tracking-wide text-[#97794A]">{years}</p>
+              <h3 className="font-serif text-xl text-[#193C31]">{degree}</h3>
+              <p className="mt-1 text-sm text-[#667269]">{institution}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <SectionTitle
-          eyebrow="About"
-          title="Who this portfolio belongs to"
-          subtitle="I’m Alankar Uniyal, a Data Science graduate based in Erlangen, working at the intersection of biomedical signals, medical imaging, machine learning, and research engineering. My work focuses on building end-to-end analytical pipelines, diagnosing model behavior honestly, and turning experiments into reproducible systems."
-        />
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <SimpleCard>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-slate-100">Background</h3>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
-                <li>• MSc in Data Science, FAU Erlangen-Nürnberg</li>
-                <li>• Thesis work in EMG signal analysis and experimental modeling</li>
-                <li>• Experience with PyTorch, scikit-learn, signal processing, and scientific ML workflows</li>
-                <li>• IEEE publications in health and risk-prediction applications</li>
-              </ul>
-            </div>
-          </SimpleCard>
-
-          <SimpleCard>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-slate-100">Links</h3>
-              <div className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
-                <p>
-                  <span className="font-semibold">GitHub:</span> github.com/auniyal26
-                </p>
-                <p>
-                  <span className="font-semibold">Artifacts:</span> Google Drive project folder
-                </p>
-                <p>
-                  <span className="font-semibold">Location:</span> Erlangen, Germany
-                </p>
-                <p>
-                  <span className="font-semibold">Contact:</span> auniyal26@gmail.com
-                </p>
-              </div>
-            </div>
-          </SimpleCard>
+      <footer className="bg-[#193C31] text-[#F5F1E7]">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-6 py-8 lg:px-10">
+          <p className="font-serif text-xl">Alankar Sunil Uniyal</p>
+          <p className="text-xs text-[#CEDDD2]">Computational Medicine · Biomedical AI · Statistical Learning</p>
+          <a href="mailto:auniyal26@gmail.com" className="text-xs font-semibold text-[#E4CCA0]">Contact ↗</a>
         </div>
-      </section>
-
-      <section className="border-y border-slate-800 bg-slate-900/50">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <SectionTitle
-            eyebrow="Timeline"
-            title="How the body of work evolved"
-            subtitle="The progression moved from signal-processing foundations to cleaner repos, stronger baselines, and project-grade reporting."
-          />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {timeline.map(([date, text], index) => (
-              <motion.div
-                key={date}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: index * 0.06 }}
-              >
-                <SimpleCard className="h-full">
-                  <div className="p-6">
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-                      {date}
-                    </p>
-                    <p className="mt-4 text-sm leading-6 text-slate-300">{text}</p>
-                  </div>
-                </SimpleCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <SectionTitle
-          eyebrow="Project breakdown"
-          title="Everything built so far"
-          subtitle="Each section below is written like a proof-of-work summary: what problem I tackled, what I actually shipped, and what that work taught me."
-        />
-
-        <div className="mt-12 space-y-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-slate-800 bg-slate-900/60">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-          <SectionTitle
-            eyebrow="What makes this credible"
-            title="Why this is stronger than a generic portfolio"
-            subtitle="Most portfolios show polished claims. This one shows the chain from setup to diagnosis to iteration."
-          />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {[
-              "Controlled experiments instead of random tweaking",
-              "Explicit failure modes documented, not hidden",
-              "Metrics paired with confusion matrices, PSDs, and report artifacts",
-              "Repos cleaned, packaged, and runnable from CLI",
-              "Public dataset work included, not just toy examples",
-              "Strong fit for research engineer and biomedical AI roles",
-            ].map((item, index) => (
-              <motion.div
-                key={item}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.45, delay: index * 0.04 }}
-              >
-                <div className="flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-5 shadow-xl shadow-black/10">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-slate-500" />
-                  <p className="text-sm leading-6 text-slate-300">{item}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="rounded-[2rem] border border-slate-800 bg-slate-900 px-8 py-12 text-slate-100 shadow-xl shadow-black/10 sm:px-12">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-                Research direction
-              </p>
-              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-100 sm:text-4xl">
-                Five projects. One research-minded way of building.
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-                These projects were built to show more than technical curiosity.
-                They reflect a working style centered on structured
-                experimentation, reproducible outputs, and systems that can be
-                inspected, extended, and trusted.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-950/70 p-6">
-              <h3 className="text-lg font-bold text-slate-100">
-                What carries across all five
-              </h3>
-              <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
-                <li>• Clear problem framing before modeling</li>
-                <li>• Baselines built before complexity</li>
-                <li>• Visible artifacts instead of hidden claims</li>
-                <li>• Reusable workflows over one-off experiments</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      </footer>
     </div>
   );
 }
