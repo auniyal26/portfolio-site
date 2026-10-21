@@ -1,12 +1,17 @@
-# Portfolio v7.7 — Responsive stacked chapters
+# Portfolio v7.8 — Publications
 
-A small, targeted patch to v7.6. **Home is unchanged.** About and Work panels now use natural heights based on their content, with an adaptive sticky offset so long chapters can scroll fully before the next chapter covers them. Short sections no longer take an entire viewport just to hold a few lines.
+Adds two verified 2021 IEEE GCAT conference papers to the Work page, with author order, full titles, and DOI links. The Publications section sits between the work-principles chapter and selected projects. Sections grow to fit their content, and the current layered scrolling, Light/Dark themes, quotes, photographs and other pages are unchanged.
 
-Everything else (copy, images, Light/Dark themes, hobbies, quote carousel, navigation) is unchanged.
+## Publications
+
+1. Alankar Uniyal, Ayush Patel, Ritesh Dhanare. *Parkinson’s Disease Predictor via Voice Analysis*. IEEE GCAT 2021. https://doi.org/10.1109/GCAT52182.2021.9587850
+2. Ayush Patel, Alankar Uniyal, Ritesh Dhanare. *U.K. Car Accident and Insurance Predictor using Machine Learning*. IEEE GCAT 2021. https://doi.org/10.1109/GCAT52182.2021.9587647
+
+Current doctoral work is correctly shown as ongoing research, not as a publication.
 
 ## Install
 
-Extract this ZIP into the root of the existing Next.js portfolio project, preserving `.git` and any `.env*` files. Then run:
+Extract this ZIP into your existing Next.js portfolio folder, without deleting `.git` or `.env*` files.
 
 ```powershell
 Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue
@@ -15,4 +20,4 @@ npm run build
 npm run dev
 ```
 
-If dependencies cannot be fetched, complete the build when npm connectivity is restored.
+Validation: static JSX/CSS checks and archive integrity. Full production build must run on a machine with Next.js dependencies installed.

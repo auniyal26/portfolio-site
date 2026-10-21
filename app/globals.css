@@ -1167,3 +1167,30 @@ html[data-mode="dark"] .interior-stack > .about-mode-content.stack-panel { backg
 @media (max-width: 740px) {
   .interior-stack .about-mode-content.stack-panel > section { height: auto; min-height: 0; }
 }
+
+/* v7.8 — Publications: editorial list, content-driven height, no new animations. */
+.publications-section { background: var(--ivory); }
+.publications-heading { margin: 22px 0 36px; display: flex; justify-content: space-between; align-items: end; gap: 30px; }
+.publications-heading > p { margin: 0 0 6px; max-width: 260px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.publication-list { border-top: 1px solid var(--line); }
+.publication-item { display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 25px; padding: clamp(22px,3vw,36px) 0; border-bottom: 1px solid var(--line); }
+.publication-number { font: italic 20px var(--serif); color: #947345; }
+.publication-details { min-width: 0; }
+.publication-details h3 { margin: 0 0 11px; max-width: 940px; font: 400 clamp(24px,2.75vw,37px)/1.25 var(--serif); letter-spacing: -.025em; color: var(--forest); }
+.publication-authors { margin: 0 0 6px; font-size: 14px; line-height: 1.7; color: var(--ink); }
+.publication-venue { margin: 0; font-size: 13px; line-height: 1.8; color: var(--muted); }
+.publication-doi { display: inline-flex; align-items: center; gap: 13px; margin-top: 17px; padding-bottom: 5px; font-size: 13px; font-weight: 700; color: var(--forest); border-bottom: 1px solid var(--gold); transition: gap .2s ease; }
+.publication-doi:hover { gap: 19px; }
+html[data-mode="dark"] .publications-section { background: #0b1524; }
+html[data-mode="dark"] .publication-details h3 { color: #eaf0f6; }
+html[data-mode="dark"] .publication-authors { color: #d5e1eb; }
+html[data-mode="dark"] .publication-venue, html[data-mode="dark"] .publications-heading > p { color: #bfcede; }
+html[data-mode="dark"] .publication-doi { color: #add4ee; }
+@media (max-width: 740px) {
+  .publications-heading { display: block; margin-bottom: 28px; }
+  .publications-heading > p { margin-top: 13px; }
+  .publication-item { grid-template-columns: 24px minmax(0,1fr); gap: 14px; }
+  .publication-details h3 { font-size: clamp(24px,6vw,31px); }
+  .publication-authors, .publication-venue { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .publication-doi { transition: none; } }
